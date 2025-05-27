@@ -92,11 +92,14 @@ export const getMoviePosterUrl = (posterPath, size = 'w500') => {
   return `${IMAGE_BASE_URL}${size}${posterPath}`;
 };
 
-export const getBackdropUrl = (backdropPath) => { // Removed size parameter since BACKDROP_BASE_URL is always 'original'
+export const getBackdropUrl = (backdropPath) => {
   if (!backdropPath) {
     return 'https://via.placeholder.com/1280x720?text=No+Backdrop';
   }
-  return `<span class="math-inline">\{BACKDROP\_BASE\_URL\}</span>{backdropPath}`; // Use the declared variable
+  // FIX: Corrected template literal syntax.
+  // The previous code had `<span class="math-inline">\{BACKDROP\_BASE\_URL\}</span>{backdropPath}` which is not valid JavaScript.
+  // It should use backticks (`) and ${variable} syntax.
+  return `${BACKDROP_BASE_URL}${backdropPath}`;
 };
 
 export const getProfilePictureUrl = (profilePath, size = 'w185') => {
