@@ -92,11 +92,11 @@ export const getMoviePosterUrl = (posterPath, size = 'w500') => {
   return `${IMAGE_BASE_URL}${size}${posterPath}`;
 };
 
-export const getBackdropUrl = (backdropPath, size = 'original') => {
+export const getBackdropUrl = (backdropPath) => { // Removed size parameter since BACKDROP_BASE_URL is always 'original'
   if (!backdropPath) {
     return 'https://via.placeholder.com/1280x720?text=No+Backdrop';
   }
-  return `${IMAGE_BASE_URL}${size}${backdropPath}`;
+  return `<span class="math-inline">\{BACKDROP\_BASE\_URL\}</span>{backdropPath}`; // Use the declared variable
 };
 
 export const getProfilePictureUrl = (profilePath, size = 'w185') => {
